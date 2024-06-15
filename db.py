@@ -66,6 +66,29 @@ def get_all_sources():
     con.close()
     return results
 
+def initialize_db():
+    conn = sqlite3.connect('feeds.db')
+    cur = conn.cursor()
+    cur.execute('''
+    CREATE TABLE IF NOT EXISTS sources (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        userId INTEGER NOT NULL,
+        url TEXT NOT NULL,
+        last_updated INTEGER DEFAULT 0
+    )
+    ''')
+    conn.commit()
+    conn.close()
+
+def get_all_sources():
+    conn = sqlite3.connect('feeds.db')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM sources")
+    sources = cur.fetchall()
+    conn.close()
+    return sources
+
+# Include other database functions as needed
 
 def update_source_timestamp(userId, source, time):
     con = sqlite3.connect(DATABASE)
