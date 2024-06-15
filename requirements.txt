@@ -4,4 +4,4 @@ feedparser==6.0.8
 requests==2.26.0
 Flask
 savepagenow
-"python-telegram-bot[job-queue]"
+python-telegram-bot[job-queue]
