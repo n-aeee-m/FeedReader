@@ -1,5 +1,5 @@
-feedparser
-python-telegram-bot[job-queue]
-python-dotenv
-savepagenow
-Flask 
+python-dotenv==0.19.2
+python-telegram-bot==13.10
+feedparser==6.0.8
+requests==2.26.0
+Flask
